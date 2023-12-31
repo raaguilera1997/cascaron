@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { Todo, Meta } from 'src/core/models';
+import ExampleComponent from 'src/core/ExampleComponent.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({

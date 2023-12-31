@@ -9,12 +9,25 @@
 // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js
 
 
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+
 const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (ctx) {
   return {
     // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
-    supportTS: true,
+    supportTS: {
+      tsCheckerConfig: {
+        eslint: {
+          enabled: true,
+          files: './src/**/*.{ts,tsx,js,jsx,vue}',
+        },
+      }
+    },
+    sourceFiles: {
+      router: "src/infrastructure/router",
+    },
 
     // https://v2.quasar.dev/quasar-cli-webpack/prefetch-feature
     // preFetch: true,
@@ -23,13 +36,13 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
     boot: [
-      
+
       'axios',
     ],
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
     css: [
-      'app.css'
+      'app.scss'
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -48,7 +61,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // transpile: false,
       // publicPath: '/',
@@ -89,14 +102,16 @@ module.exports = configure(function (ctx) {
       // lang: 'en-US', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
-      // (like functional components as one of the examples),
-      // you can manually specify Quasar components/directives to be available everywhere:
+      // (like functional core as one of the examples),
+      // you can manually specify Quasar core/directives to be available everywhere:
       //
-      // components: [],
+      // core: [],
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Loading',
+      ],
     },
 
     // animations: 'all', // --- includes all animations
@@ -134,8 +149,8 @@ module.exports = configure(function (ctx) {
       // chainWebpackCustomSW (/* chain */) {},
 
       manifest: {
-        name: `Quasar Cascaron`,
-        short_name: `Quasar Cascaron`,
+        name: `Quasar App`,
+        short_name: `Quasar App`,
         description: ``,
         display: 'standalone',
         orientation: 'portrait',
@@ -201,7 +216,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'cascaron'
+        appId: 'quasar-project'
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
