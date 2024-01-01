@@ -1,8 +1,7 @@
 <script lang="ts">
 // import { useDrawer } from 'src/core/composable/useDrawer';
 import { defineComponent } from 'vue';
-// import IconComponent from 'src/core/components/brand/IconComponent.vue';
-// import LogoBrandComponent from 'src/core/components/brand/LogoBrandComponent.vue';
+import LogoBrandComponent from 'src/core/components/brand/LogoBrandComponent.vue';
 import ContentFooterComponent from './components/ContentFooterComponent.vue';
 import ContentHeaderComponent from './components/ContentHeaderComponent.vue';
 import MenuOptionJSON from './domain/statics/MenuOption.json';
@@ -12,7 +11,7 @@ export default defineComponent({
   name: 'MainLayout',
   components: {
     // IconComponent,
-    // LogoBrandComponent,
+    LogoBrandComponent,
     ContentHeaderComponent,
   },
   // async mounted() {
@@ -140,11 +139,12 @@ export default defineComponent({
               dense
               icon="menu"
             />
-            <logo-brand-component  v-if="$q.screen.gt.xs" size="130px"></logo-brand-component>
+            <logo-brand-component  v-if="$q.screen.gt.xs" size="30px"></logo-brand-component>
+            <q-toolbar-title class="text-white">
+              Cascaron
+            </q-toolbar-title>
           </div>
-          <q-toolbar-title class="text-white">
-            Cascaron
-          </q-toolbar-title>
+
         </template>
       </content-header-component>
     </q-header>

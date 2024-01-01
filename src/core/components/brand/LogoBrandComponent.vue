@@ -14,8 +14,8 @@
   },
   computed: {
     brandImagePath () {
-      if (this.small) return require("src/assets/images/brand/logo_small_icon_only_inverted.png")
-      return require("src/assets/images/brand/logo_large.jpg")
+      if (this.small) return require("src/assets/images/logo.png")
+      return require("src/assets/images/logo.png")
     }
   }
 })

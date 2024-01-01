@@ -62,7 +62,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <q-toolbar class="q-pb-md q-pt-md text-dark bg-ap-primary">
+  <q-toolbar class="q-pb-md q-pt-md text-white bg-ap-primary">
     <!-- <q-btn round flat @click="toggle" class="onlymovile" >
       <icon-component template name="las la-bars" size="28px"></icon-component>
     </q-btn> -->

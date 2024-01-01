@@ -4,7 +4,7 @@ const config = (() => {
     // //VUE_CONFIG_APP_KEY: "",
     // VUE_CONFIG_APP_KEY: "",
     // //VUE_CONFIG_APP_KEY: "",
-    // VUE_CONFIG_API: "",
+    VUE_CONFIG_API: "",
     // //VUE_CONFIG_API:"",
     // VUE_CONFIG_IDENTITY_API: "",
     // //VUE_CONFIG_IDENTITY_API: "",
