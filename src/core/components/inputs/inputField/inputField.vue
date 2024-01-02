@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import mixinField from "src/core/core/inputs/_mixin/mixinInput";
+import mixinField from "src/core/components/inputs/_mixin/mixinInput";
 export default {
   name: "InputField",
   mixins: [mixinField],

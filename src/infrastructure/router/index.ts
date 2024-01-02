@@ -6,8 +6,7 @@ import {
   createWebHistory,
 } from "vue-router";
 import routes from "./routes";
-// import { getAccessTokenFromLocalStorage }        from "src/infrastructure/store/security/TokenManagmentStore";
-// import { getUserNeedSecondFactorAuthentication } from "src/infrastructure/store/security/SecondFactorAuthenticationStore";
+import { getAccessTokenFromLocalStorage }   from "src/infrastructure/store/security/TokenManagmentStore";
 import { LocalStorage }                          from "app/node_modules/quasar";
 /*
  * If not building with SSR mode, you can
@@ -33,34 +32,23 @@ export const Router = createRouter({
 
 export default route(function (/* { store, ssrContext } */) {
 
-  // const routesWithOutSecurity = [ "ForgotPasswordPage", "ResetPasswordPage" ];
-  // const routesSecondFactorAuthentication = [ "SecurityKeyPage", "CodePage" ];
-  // Router.beforeEach( ( to: any, from: any, next: any ) => {
-  //   // This condition is for external security
-  //   if ( routesWithOutSecurity.includes( to.name ) ) {
-  //     return next();
-  //   }
-  //   if ( to.name === "LoginPage" && getAccessTokenFromLocalStorage() ) {
-  //     return next( { name: "PrincipalDashboardPage" } );
-  //   }
-  //   if ( to.name == undefined && getAccessTokenFromLocalStorage() ) {
-  //     return next( { name: "WelcomeDashboardPage" } );
-  //   }
-  //
-  //   if ( to.name !== "LoginPage" && !getAccessTokenFromLocalStorage() && !getUserNeedSecondFactorAuthentication() ) {
-  //     LocalStorage.clear();
-  //     return next( { name: "LoginPage" } );
-  //   }
-  //   // This condition is for Second Factor Authentication security
-  //   if ( routesSecondFactorAuthentication.includes( to.name ) && getUserNeedSecondFactorAuthentication() ) {
-  //
-  //     return next();
-  //   }
-  //   if ( routesSecondFactorAuthentication.includes( to.name ) && getAccessTokenFromLocalStorage() ) {
-  //    return next( { name: "PrincipalDashboardPage" } );
-  //   }
-  //   next();
-  // } );
-
+  const routesWithOutSecurity = [ "ForgotPasswordPage", "ResetPasswordPage" ];
+  const routesSecondFactorAuthentication = [ "SecurityKeyPage", "CodePage" ];
+  Router.beforeEach( ( to: any, from: any, next: any ) => {
+    // This condition is for external security
+    if ( routesWithOutSecurity.includes( to.name ) ) {
+      return next();
+    }
+    if ( to.name === "LoginPage" && getAccessTokenFromLocalStorage() ) {
+      return next( { name: "WelcomeDashboardPage" } );
+    }
+    if ( to.name != "LoginPage" && !getAccessTokenFromLocalStorage() ) {
+      return next( { name: "LoginPage" } );
+    }
+    if ( to.name == undefined && !getAccessTokenFromLocalStorage() ) {
+      return next( { name: "LoginPage" } );
+    }
+    next();
+  } );
   return Router;
 });

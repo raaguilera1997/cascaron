@@ -1,12 +1,12 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 
-// Global components
+// Global Login
 import LogoBrandComponent from "src/core/components/brand/LogoBrandComponent.vue";
 
 export default defineComponent({
   name: "ContentFooter",
-  // components: { LogoBrandComponent },
+  // Login: { LogoBrandComponent },
   data() {
     return {};
   }

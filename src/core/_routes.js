@@ -1,18 +1,13 @@
-// import ExternalSecurityRoutes from "./modules/external-security/_routes";
+import ExternalSecurityRoutes from "./modules/external-security/_routes";
 import DashboardRoutes from "./modules/dashboard/_routes";
 export default [
-  // ...ExternalSecurityRoutes,
+  ...ExternalSecurityRoutes,
   {
     path: "",
     component: () => import("./layouts/MainLayout.vue"),
     children: [
       ...DashboardRoutes,
     ]
-  },
-  {
-    path: "/login",
-    component: () => import("./modules/acount/acount.vue")
-
   },
 
   // Always leave this as last one

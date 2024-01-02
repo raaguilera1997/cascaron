@@ -1,13 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-// Global components
-// import IconComponent from 'src/core/components/brand/IconComponent.vue';
-// import Gravatar from 'src/core/components/gravatar/GravatarLogo.vue';
-// import ChangePasswordDialog from 'src/core/modules/external-security/change-password/ui/components/ChangePasswordDialog.vue';
+// Global Login
+// import IconComponent from 'src/core/Login/brand/IconComponent.vue';
+// import Gravatar from 'src/core/Login/gravatar/GravatarLogo.vue';
+// import ChangePasswordDialog from 'src/core/modules/external-security/change-password/ui/Login/ChangePasswordDialog.vue';
 export default defineComponent({
   name: 'ContentHeader',
-  // components: { IconComponent, Gravatar },
+  // Login: { IconComponent, Gravatar },
   props: {
     leftMenuState: {
       type: Boolean,
