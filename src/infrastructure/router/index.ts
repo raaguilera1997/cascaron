@@ -31,9 +31,7 @@ export const Router = createRouter({
 });
 
 export default route(function (/* { store, ssrContext } */) {
-
   const routesWithOutSecurity = [ "ForgotPasswordPage", "ResetPasswordPage" ];
-  const routesSecondFactorAuthentication = [ "SecurityKeyPage", "CodePage" ];
   Router.beforeEach( ( to: any, from: any, next: any ) => {
     // This condition is for external security
     if ( routesWithOutSecurity.includes( to.name ) ) {
