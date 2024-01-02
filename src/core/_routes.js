@@ -9,6 +9,11 @@ export default [
       ...DashboardRoutes,
     ]
   },
+  {
+    path: "/login",
+    component: () => import("./modules/acount/acount.vue")
+
+  },
 
   // Always leave this as last one
   { path: "/:catchAll(.*)*", component: () => import("./errors/Error404Page.vue") }
