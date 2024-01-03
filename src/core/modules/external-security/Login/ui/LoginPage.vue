@@ -74,7 +74,8 @@
   import IconComponent from 'src/core/components/brand/IconComponent.vue';
   import {useMeta} from "app/node_modules/quasar";
   import {notify} from "src/infrastructure/services/VisualNotifyService";
-  export default {
+  import {defineComponent} from "app/node_modules/vue";
+  export default  defineComponent({
   name: 'loginPage',
   components: {
     InputField,
@@ -119,7 +120,7 @@
       },
     }
 
-}
+})
 </script>
 <style lang="scss">
   .login-page {

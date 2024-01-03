@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyDTq-51frYwInlq7WjWxabWSQbY6KUfNdQ",
-  authDomain: "testauth-dd755.firebaseapp.com",
-  projectId: "testauth-dd755",
-  storageBucket: "testauth-dd755.appspot.com",
-  messagingSenderId: "834504263208",
-  appId: "1:834504263208:web:5724a5c83e65b7fc71971d",
-  measurementId: "G-D6SLX7PHQJ"
+  apiKey: "AIzaSyBaOgpkhLsuA7tKlfI092EP3NV3M3DdClg",
+  authDomain: "near-quote.firebaseapp.com",
+  projectId: "near-quote",
+  storageBucket: "near-quote.appspot.com",
+  messagingSenderId: "11366158328",
+  appId: "1:11366158328:web:2c4046fa6358532647100d",
+  measurementId: "G-FJ8HBRGT37"
 };
 
 initializeApp(firebaseConfig);
