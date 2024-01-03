@@ -9,19 +9,14 @@ export const useLogin=()=>{
   // const user =useStoreUser.user
   // const userLogging =useStoreUser.userLogging
    const userData:any=null
-  // const submitData=async(email:any,password:any)=>{
-  //   const result = await useStoreAuth.BasicLogin({
-  //     email: email,
-  //     password:password
-  //   });
-  //   if (result.statusCode == 200) {
-  //     //ok
-  //     userData = await useStoreUser.GetUserData();
-  //
-  //   }
-  //   return userData
-  //
-  // }
+  const submitData=async(email:any,password:any)=>{
+    const result = await useStoreAuth.BasicLogin({
+      email: email,
+      password:password
+    });
+    return result
+
+  }
   // const signout=()=>useStoreAuth.signout()
   // const refreshTokenAction=()=>useStoreAuth.refreshTokenAction()
   // const HavePermision=(code:string)=>useStoreUser.HavePermision(code)
@@ -30,6 +25,6 @@ export const useLogin=()=>{
     token,
     refreshToken,
     // signout,
-    // submitData
+    submitData
   }
 }
