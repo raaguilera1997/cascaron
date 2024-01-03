@@ -1,6 +1,6 @@
 import {defineStore} from 'app/node_modules/pinia';
-import {getAuth, signInWithEmailAndPassword} from "app/node_modules/firebase/auth";
-
+import {getAuth, signInWithEmailAndPassword,signOut} from "app/node_modules/firebase/auth";
+import {Router} from "src/infrastructure/router/index"
 export interface AuthStateInterface {
   token: string | null;
   refreshToken: string | null;
@@ -37,6 +37,16 @@ export const auth = defineStore('auth', {
         return 200
       }).catch((err) => {
         return 401
+      })
+    },
+    async singOut() {
+      return signOut(getAuth()).then((response: any) => {
+        this.token=null
+        this.refreshToken=null
+        this.email=null
+         Router.push({name: 'LoginPage'})
+      }).catch((err) => {
+        return 400
       })
     }
   },

@@ -1,5 +1,5 @@
 <script lang="ts">
-// import { useDrawer } from 'src/core/composable/useDrawer';
+import { useDrawer } from 'src/core/composable/useDrawer';
 import { defineComponent } from 'vue';
 import LogoBrandComponent from 'src/core/components/brand/LogoBrandComponent.vue';
 import ContentFooterComponent from './components/ContentFooterComponent.vue';
@@ -66,10 +66,8 @@ export default defineComponent({
       return expand;
     },
     logout() {
-      // useLogin().signout();
-      localStorage.removeItem('idiom');
-      window.location.replace('/');
-      this.$q.loading.hide();
+      //@ts-ignore
+      useLogin().signOut();
     },
     checkPermission(link: any) {
       if (link.routeName == 'WelcomeDashboardPage') {
@@ -88,11 +86,11 @@ export default defineComponent({
       // return true;
     },
   },
-  // watch: {
-  //   // drawer(value) {
-  //   //   useDrawer().setDrawer();
-  //   // },
-  // },
+  watch: {
+    drawer(value) {
+      useDrawer().setDrawer();
+    },
+  },
 });
 </script>
 
@@ -108,6 +106,7 @@ export default defineComponent({
         <template v-slot:section_logo>
           <div class="row  q-gutter-md">
             <q-btn
+              color="dark"
               v-if="$q.screen.lt.lg"
               flat
               @click="drawer = !drawer"
@@ -115,8 +114,8 @@ export default defineComponent({
               dense
               icon="menu"
             />
-            <logo-brand-component  v-if="$q.screen.gt.xs" size="30px"></logo-brand-component>
-            <q-toolbar-title class="text-dark">
+            <logo-brand-component  v-if="$q.screen.gt.sm" size="30px"></logo-brand-component>
+            <q-toolbar-title  v-if="$q.screen.gt.sm"  class="text-dark">
               Cascaron
             </q-toolbar-title>
           </div>

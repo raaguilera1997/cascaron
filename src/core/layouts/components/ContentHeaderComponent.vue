@@ -91,7 +91,7 @@ export default defineComponent({
             <q-item class="q-pa-lg bg-ap-primary-light text-dark ">
               <q-item-section avatar>
                  <q-icon name="las la-user-circle" size="lg" color="dark"></q-icon>
-                <Gravatar :email="userData.email" />
+<!--                <Gravatar :email="userData.email" />-->
               </q-item-section>
               <q-item-section>
                 <q-item-label lines="1">

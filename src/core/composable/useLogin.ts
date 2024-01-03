@@ -18,7 +18,7 @@ export const useLogin=()=>{
     return result
 
   }
-  // const signout=()=>useStoreAuth.signout()
+  const signOut=()=>useStoreAuth.singOut()
   // const refreshTokenAction=()=>useStoreAuth.refreshTokenAction()
   // const HavePermision=(code:string)=>useStoreUser.HavePermision(code)
   return {
@@ -26,6 +26,7 @@ export const useLogin=()=>{
     token,
     email_user,
     refreshToken,
+    signOut,
     // signout,
     submitData
   }
