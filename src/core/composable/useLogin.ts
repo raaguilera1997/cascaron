@@ -6,6 +6,7 @@ export const useLogin=()=>{
   const useStoreAuth = auth_store();
   const token=useStoreAuth.token
   const refreshToken =useStoreAuth.refreshToken
+  const email_user =useStoreAuth.email
   // const user =useStoreUser.user
   // const userLogging =useStoreUser.userLogging
    const userData:any=null
@@ -23,6 +24,7 @@ export const useLogin=()=>{
   return {
     // refreshTokenAction,
     token,
+    email_user,
     refreshToken,
     // signout,
     submitData

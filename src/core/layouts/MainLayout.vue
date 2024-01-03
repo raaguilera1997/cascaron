@@ -5,7 +5,7 @@ import LogoBrandComponent from 'src/core/components/brand/LogoBrandComponent.vue
 import ContentFooterComponent from './components/ContentFooterComponent.vue';
 import ContentHeaderComponent from './components/ContentHeaderComponent.vue';
 import MenuOptionJSON from './domain/statics/MenuOption.json';
-// import { useLogin } from 'src/core/composable/useLogin';
+import { useLogin } from 'src/core/composable/useLogin';
 
 export default defineComponent({
   name: 'MainLayout',
@@ -14,40 +14,16 @@ export default defineComponent({
     LogoBrandComponent,
     ContentHeaderComponent,
   },
-  // async mounted() {
-  //   // this.$q.loading.show();
-  //   try {
-  //     //@ts-ignore
-  //     this.userData = useLogin().user;
-  //   } catch (e) {
-  //     this.logout();
-  //   } finally {
-  //     // this.$q.loading.hide();
-  //   }
-  // },
+
   data() {
-    // const { HavePermision } = useLogin();
+    const { email_user  } = useLogin();
     let drawer: boolean = false;
-    const userData: {
-      email: string;
-      phoneNumber: string;
-      userName: string;
-      lockoutEnabled: false;
-      twoFactorEnabled: false;
-      permissions: [{ code: string }];
-      roleName: string;
+    let userData: {
+      email: any;
     } = {
-      email: '',
-      phoneNumber: '',
-      userName: '',
-      lockoutEnabled: false,
-      twoFactorEnabled: false,
-      permissions: [{ code: '' }],
-      roleName: '',
+      email: email_user,
     };
     return {
-      // HavePermision,
-      // Local var
       drawer,
       leftMenu: {
         state: true,
@@ -140,7 +116,7 @@ export default defineComponent({
               icon="menu"
             />
             <logo-brand-component  v-if="$q.screen.gt.xs" size="30px"></logo-brand-component>
-            <q-toolbar-title class="text-white">
+            <q-toolbar-title class="text-dark">
               Cascaron
             </q-toolbar-title>
           </div>

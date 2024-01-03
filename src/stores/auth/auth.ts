@@ -42,6 +42,6 @@ export const auth = defineStore('auth', {
   },
   persist: {
     storage: localStorage,
-    paths: ['token', 'refreshToken'],
+    paths: ['token', 'refreshToken','email'],
   },
 });
